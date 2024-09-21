@@ -36,7 +36,7 @@ async def get_raw_body(recieve: Callable[[], Awaitable[dict[str, Any]]]) -> byte
         message = await recieve()
         body += message.get('body', b'')
         more_body = message.get('more_body', False)
-    return body   # .decode()
+    return body  # .decode()
 
 
 async def send_response(send: Callable[[dict[str, Any]], Awaitable[None]],
@@ -44,7 +44,7 @@ async def send_response(send: Callable[[dict[str, Any]], Awaitable[None]],
     start = dict(ResponseStart)
     start["status"] = code
     send_body = dict(ResponseBody)
-    #if code//100 == 2:
+    # if code//100 == 2:
     send_body['body'] = json.dumps(body).encode()
     await send(start)
     await send(send_body)
@@ -58,4 +58,4 @@ async def send_err(send: Callable[[dict[str, Any]], Awaitable[None]],
 
 async def send_result(send, output: float | int) -> None:
     await send_response(send, 200, {'result': output})
-    #print(output)
+    # print(output)

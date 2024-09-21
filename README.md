@@ -39,11 +39,13 @@ run uvicorn app server with command:
 For homework N:
 `make run hwN`
 
-To test homework 1 open another terminal & run testing script
+To test homework 1 open another terminal & run testing script:
 
 `cd python-backend-itmo`
 
 `make test_hw1`
+
+(`make test test_hw1_val` with some additional value tests)
 
 # Screenshots
 

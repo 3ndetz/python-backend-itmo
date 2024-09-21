@@ -16,3 +16,8 @@ test_hw1:
 	. ./venv/bin/activate; \
 	pytest ${CURDIR}/tests/test_homework_1.py \
 	)
+test_hw1_vals:
+	( \
+	. ./venv/bin/activate; \
+	pytest ${CURDIR}/tests/test_homework_1_vals.py \
+	)
