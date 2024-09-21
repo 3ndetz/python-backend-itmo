@@ -1,9 +1,10 @@
 [tool.poetry]
-name = "hse-python-backend"
+name = "python-backend-itmo"
 version = "0.1.0"
 description = ""
-authors = ["Ilya Katun <katun.ilya@gmail.com>"]
+authors = ["3ndetz <jayrawrr3@gmail.com>"]
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.12"
@@ -11,6 +12,10 @@ uvicorn = "^0.30.6"
 fastapi = "^0.114.2"
 requests = "^2.32.3"
 
+[tool.poetry.scripts]
+hw1 = "uvicorn hw.1_asgi:app --host 0.0.0.0 --port 8000 --reload"
+testhw1 = "pytest tests/test_homework1.py"
+test_hw1 = "pytest ./"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.6.5"

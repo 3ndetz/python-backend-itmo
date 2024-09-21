@@ -1,14 +1,61 @@
-# 3ndetz Python Backend Results
+# Python Backend Course 
+
+### Prerequirements
+
+You need installed:
+- ubuntu
+- - tested on Windows WSL2
+- python 3.12
+- - (as main interpreter added to PATH)
+- poetry
+- makefile
+
+### Clone the repo
+
+```
+cd your_workfolder
+
+git clone https://github.com/3ndetz/python-backend-itmo
+```
+
+#### Prepare to run
+
+Enter the folder and check installations
+
+```
+cd python-backend-itmo
+
+make installpoetry
+```
+
+### Run apps
+
+For homework 1:
+
+run uvicorn app server with command:
+
+`make run hw1`
+
+For homework N:
+`make run hwN`
+
+To test homework 1 open another terminal & run testing script
+
+`cd python-backend-itmo`
+
+`make test_hw1`
+
+# Screenshots
+
+If scripts somehow is not working.
+
 ## HW 1
-### Preparing 
 
-poetry install..
+![hw1screen](screenshots/hw1/1_asgi_tests_result.png)
 
-### Running
+---
 
-python ....
-
-### Additional info
+# Additional / original info
 
 #### Лекция 1 - Основы сети и Python Backend
 
