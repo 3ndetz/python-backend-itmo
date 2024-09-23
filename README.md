@@ -3,12 +3,12 @@
 ### Prerequirements
 
 You need installed:
-- ubuntu
-- - tested on Windows WSL2
 - python 3.12
 - - (as main interpreter added to PATH)
 - poetry
 - makefile
+
+(Run & developed on Windows WSL2 Ubuntu)
 
 ### Clone the repo
 
