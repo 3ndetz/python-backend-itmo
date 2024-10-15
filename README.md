@@ -1,16 +1,16 @@
 # Python Backend Course 
 
-### Prerequirements
+# Prerequirements
 
 You need installed:
 - python 3.12
-- - (as main interpreter added to PATH)
+- - As main interpreter added to PATH, so you could run `python3.12 --version`
 - poetry
 - makefile
 
 (Run & developed on Windows WSL2 Ubuntu)
 
-### Clone the repo
+## Clone the repo
 
 ```
 cd your_workfolder
@@ -18,26 +18,33 @@ cd your_workfolder
 git clone https://github.com/3ndetz/python-backend-itmo
 ```
 
-#### Prepare to run
+## Prepare to run
 
-Enter the folder and check installations
+Enter the folder and check installations and virtual env. Ensure you have `python3.12` into the path with `python3.12 --version`!
 
 ```
 cd python-backend-itmo
 
-make installpoetry
+make installation
 ```
 
-### Run apps
+# Run apps
 
-For homework 1:
+When you prepared for run (check previous section), then you can run other apps (homeworks).
 
-run uvicorn app server with command:
+## Homework 2
 
-`make run hw1`
+To test homework 1 open another terminal & run testing script:
 
-For homework N:
-`make run hwN`
+`cd python-backend-itmo`
+
+`make test_hw2`
+
+To test additional websocket task:
+
+`make test_hw2_ws`
+
+## Homework 1
 
 To test homework 1 open another terminal & run testing script:
 
@@ -47,11 +54,9 @@ To test homework 1 open another terminal & run testing script:
 
 (`make test test_hw1_val` with some additional value tests)
 
-# Screenshots
+### Screenshots
 
 If scripts somehow is not working.
-
-## HW 1
 
 ![hw1screen](screenshots/hw1/1_asgi_tests_result.png)
 
