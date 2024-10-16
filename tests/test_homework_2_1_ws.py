@@ -51,16 +51,20 @@ def test_websocket_chat():
     server = Server(config=config)
     with server.run_in_thread():
         r1 = "room1"
-        r2 = "room2" 
+        r2 = "room2"
         ws1 = websocket.create_connection(f"ws://localhost:8000/chat/{r1}")
         ws2 = websocket.create_connection(f"ws://localhost:8000/chat/{r1}")
         ws3 = websocket.create_connection(f"ws://localhost:8000/chat/{r2}")
         ws4 = websocket.create_connection(f"ws://localhost:8000/chat/{r2}")
         print(f"Sending from every user.")
-        ws1.send_text("Hello from user 1")
-        ws2.send_text("Hello from user 2")
-        ws3.send_text("Hello from user 3")
-        ws4.send_text("Hello from user 4")
+        msg1 = "Hello from user 1"
+        msg2 = "Hello from user 2"
+        msg3 = "Hello from user 3"
+        msg4 = "Hello from user 4"
+        ws1.send_text(msg1)
+        ws2.send_text(msg2)
+        ws3.send_text(msg3)
+        ws4.send_text(msg4)
         print(f"Sended.")
         print(f"Heared:")
         ans1 = ws1.recv()
@@ -71,7 +75,7 @@ def test_websocket_chat():
         print(f"ws2 in {r1}", ans2)
         print(f"ws3 in {r2}", ans3)
         print(f"ws4 in {r2}", ans4)
-        assert 'Hello from user 2' in ans1
-        assert 'Hello from user 1' in ans2
-        assert 'Hello from user 4' in ans3
-        assert 'Hello from user 3' in ans4
+        assert msg2 in ans1
+        assert msg1 in ans2
+        assert msg4 in ans3
+        assert msg3 in ans4

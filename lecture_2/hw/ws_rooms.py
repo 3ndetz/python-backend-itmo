@@ -71,7 +71,7 @@ async def websocket_endpoint(websocket: WebSocket, chat_name: str):
             data = await websocket.receive_text()
             for client, _ in chat_rooms[chat_name]:
                 if client != websocket:
-                    await client.send_text(f"<{username}> {data}")
+                    await client.send_text(f"{username} :: {data}")
     except WebSocketDisconnect:
         try:
             chat_rooms[chat_name].remove((websocket, username))
@@ -83,7 +83,8 @@ async def websocket_endpoint(websocket: WebSocket, chat_name: str):
         except:
             pass
 if __name__ == "__main__":
-    exit()
+    # If you running test by debug and want to see output in rooms.
+    #exit()
     import uvicorn
     import contextlib
     #uvicorn.run(app, host="0.0.0.0", port=8000)
@@ -135,10 +136,14 @@ if __name__ == "__main__":
             ws3 = websocket.create_connection(f"ws://localhost:8000/chat/{r2}")
             ws4 = websocket.create_connection(f"ws://localhost:8000/chat/{r2}")
             print(f"Sending from every user.")
-            ws1.send_text("Hello from user 1")
-            ws2.send_text("Hello from user 2")
-            ws3.send_text("Hello from user 3")
-            ws4.send_text("Hello from user 4")
+            msg1 = "Hello from user 1"
+            msg2 = "Hello from user 2"
+            msg3 = "Hello from user 3"
+            msg4 = "Hello from user 4"
+            ws1.send_text(msg1)
+            ws2.send_text(msg2)
+            ws3.send_text(msg3)
+            ws4.send_text(msg4)
             print(f"Sended.")
             print(f"Heared:")
             ans1 = ws1.recv()
@@ -149,10 +154,10 @@ if __name__ == "__main__":
             print(f"ws2 in {r1}", ans2)
             print(f"ws3 in {r2}", ans3)
             print(f"ws4 in {r2}", ans4)
-            assert 'Hello from user 2' in ans1
-            assert 'Hello from user 1' in ans2
-            assert 'Hello from user 4' in ans3
-            assert 'Hello from user 3' in ans4
+            assert msg2 in ans1
+            assert msg1 in ans2
+            assert msg4 in ans3
+            assert msg3 in ans4
     test_websocket_chat()
 #    pass
 #    exit()

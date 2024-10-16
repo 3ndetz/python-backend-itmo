@@ -44,6 +44,17 @@ To test additional websocket task:
 
 `make test_hw2_ws`
 
+And to see outputs of test messages (in rooms) you can run inner test:
+
+`make hw21runInnerTest`
+
+Files of this hws are located in the `hw2` branch of this repo:
+
+`repo/lecture_2/hw/shop_api/main.py`
+
+`repo/lecture_2/hw/shop_api/ws_rooms.py`
+
+
 ## Homework 1
 
 To test homework 1 open another terminal & run testing script:
