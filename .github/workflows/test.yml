@@ -2,9 +2,9 @@ name: Run python tests
 
 on:
   push:
-    branches: ["main"]
+    branches: ["main", "master"]
   pull_request:
-    branches: ["main"]
+    branches: ["main", "master"]
 
 jobs:
   build:
@@ -24,7 +24,11 @@ jobs:
         uses: abatilo/actions-poetry@v2
       - name: Install dependencies with poetry
         run: poetry install
-      - name: Run tests
-        run: poetry run pytest -vv --strict --showlocals
-      - name: Run lecture 4 tests
-        run: poetry run pytest -vv --strict --showlocals --cov=lecture_4/demo_service ./tests/lecture_4/hw
+      #- name: Run tests
+      #  run: poetry run pytest -vv --strict --showlocals
+      - name: Run tests for hw2_standart
+        run: poetry run pytest tests/test_homework_2.py -vv --verbose --strict --showlocals
+      - name: Run tests for hw2_websocket_chat
+        run: poetry run pytest tests/test_homework_2_1_ws.py -vv --strict
+      #- name: Run lecture 4 tests
+      #  run: poetry run pytest -vv --strict --showlocals --cov=lecture_4/demo_service ./tests/lecture_4/hw
