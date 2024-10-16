@@ -34,6 +34,8 @@ When you prepared for run (check previous section), then you can run other apps 
 
 ## Homework 2
 
+For additional info and screnshoots see [pull request ](https://github.com/3ndetz/python-backend-itmo/pull/1) of hw2.
+
 To test homework 1 open another terminal & run testing script:
 
 `cd python-backend-itmo`
