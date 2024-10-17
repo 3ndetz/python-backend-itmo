@@ -1,16 +1,16 @@
 # Python Backend Course 
 
-### Prerequirements
+# Prerequirements
 
 You need installed:
 - python 3.12
-- - (as main interpreter added to PATH)
+- - As main interpreter added to PATH, so you could run `python3.12 --version`
 - poetry
 - makefile
 
 (Run & developed on Windows WSL2 Ubuntu)
 
-### Clone the repo
+## Clone the repo
 
 ```
 cd your_workfolder
@@ -18,26 +18,70 @@ cd your_workfolder
 git clone https://github.com/3ndetz/python-backend-itmo
 ```
 
-#### Prepare to run
+## Prepare to run
 
-Enter the folder and check installations
+Enter the folder and check installations and virtual env. Ensure you have `python3.12` into the path with `python3.12 --version`!
 
 ```
 cd python-backend-itmo
 
-make installpoetry
+make installation
 ```
 
-### Run apps
+# Run apps
 
-For homework 1:
+When you prepared for run (check previous section), then you can run other apps (homeworks).
 
-run uvicorn app server with command:
+## Homework 3
 
-`make run hw1`
+Used hw2 fastapi shop service for creating graphs.
 
-For homework N:
-`make run hwN`
+See the screenshots with graphs in the [PR](https://github.com/3ndetz/python-backend-itmo/pull/2) for hw2.
+
+If you want to start the services yourself, follow the guide below.
+
+Firstly ensure you haven't running services on the 9090, 3000 and 8000 ports.
+
+To run services in docker use:
+
+1. `cd python-backend-itmo`
+
+2. `docker compose -f "docker-compose.yml" up -d`
+
+- To open prometheus you can go to `localhost:9090`
+
+- To open Graphana you can go to `localhost:3000`
+
+- - To see this service's working graphs, go the `Connections` section, `Data sources` and add a new `Prometheus` connection.
+- - Add `http://prometheus:9090/` url to this connection.
+- - Now you can open it in graphana in the `Explore` section and create graphs yourself
+
+## Homework 2
+
+For additional info and screnshoots see [pull request ](https://github.com/3ndetz/python-backend-itmo/pull/1) of hw2.
+
+To test homework 1 open another terminal & run testing script:
+
+`cd python-backend-itmo`
+
+`make test_hw2`
+
+To test additional websocket task:
+
+`make test_hw2_ws`
+
+And to see outputs of test messages (in rooms) you can run inner test:
+
+`make hw21runInnerTest`
+
+Files of this hws are located in the `hw2` branch of this repo:
+
+`repo/lecture_2/hw/shop_api/main.py`
+
+`repo/lecture_2/hw/shop_api/ws_rooms.py`
+
+
+## Homework 1
 
 To test homework 1 open another terminal & run testing script:
 
@@ -47,11 +91,9 @@ To test homework 1 open another terminal & run testing script:
 
 (`make test test_hw1_val` with some additional value tests)
 
-# Screenshots
+### Screenshots
 
 If scripts somehow is not working.
-
-## HW 1
 
 ![hw1screen](screenshots/hw1/1_asgi_tests_result.png)
 
