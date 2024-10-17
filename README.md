@@ -40,6 +40,8 @@ See the screenshots with graphs in the [PR](https://github.com/3ndetz/python-bac
 
 If you want to start the services yourself, follow the guide below.
 
+Firstly ensure you haven't running services on the 9090, 3000 and 8000 ports.
+
 To run services in docker use:
 
 1. `cd python-backend-itmo`
