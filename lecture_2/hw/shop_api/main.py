@@ -1,11 +1,11 @@
-from fastapi import FastAPI, Response, WebSocket, HTTPException, status, Query, APIRouter
-from fastapi.responses import JSONResponse
+from fastapi import FastAPI, Response, HTTPException, status, Query, Request
+from prometheus_client import Counter, Histogram, start_http_server, generate_latest
 from typing import List, Optional
 from pydantic import BaseModel
 from http import HTTPStatus
 import uuid
 import random
-
+from contextlib import asynccontextmanager
 
 app = FastAPI(title="My Shop Server")
 
@@ -204,6 +204,31 @@ def delete_item(id: int):
         #raise HTTPException(status_code=304, detail="Not modifed")
     items[id].deleted = True
     return {"message": "Item's deletion mark added"}
+
+### HW3 PROMETHEUS
+
+# metrics server
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    start_http_server(8001) 
+    yield
+
+# Counter
+REQUEST_COUNT = Counter('request_count', 'Amount of requests (n)')
+
+# Создаем гистограмму для времени обработки запросов
+REQUEST_LATENCY = Histogram('request_latency_seconds', 'Request latency (s)')
+
+@app.get("/metrics")
+async def get_metrics():
+    return Response(generate_latest(), media_type="text/plain")
+
+@app.middleware("http")
+async def add_prometheus_metrics(request: Request, call_next):
+    REQUEST_COUNT.inc()
+    with REQUEST_LATENCY.time():
+        response = await call_next(request)
+    return response
 
 #if __name__ == "__main__":
 #    pass

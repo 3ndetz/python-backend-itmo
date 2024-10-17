@@ -32,6 +32,28 @@ make installation
 
 When you prepared for run (check previous section), then you can run other apps (homeworks).
 
+## Homework 3
+
+Used hw2 fastapi shop service for creating graphs.
+
+See the screenshots with graphs in the [PR](https://github.com/3ndetz/python-backend-itmo/pull/2) for hw2.
+
+If you want to start the services yourself, follow the guide below.
+
+To run services in docker use:
+
+1. `cd python-backend-itmo`
+
+2. `docker compose -f "docker-compose.yml" up -d`
+
+- To open prometheus you can go to `localhost:9090`
+
+- To open Graphana you can go to `localhost:3000`
+
+- - To see this service's working graphs, go the `Connections` section, `Data sources` and add a new `Prometheus` connection.
+- - Add `http://prometheus:9090/` url to this connection.
+- - Now you can open it in graphana in the `Explore` section and create graphs yourself
+
 ## Homework 2
 
 For additional info and screnshoots see [pull request ](https://github.com/3ndetz/python-backend-itmo/pull/1) of hw2.
